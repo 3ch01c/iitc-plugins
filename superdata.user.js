@@ -2,11 +2,11 @@
 // @id             iitc-plugin-superdata@anonymous_in_sf
 // @name           IITC plugin: Load a lot more portals/links
 // @category       Info
-// @version        0.0.1.20170103
+// @version        0.0.1.20170312
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      http://distomatic.s3-website-us-east-1.amazonaws.com/iitc/plugins/map-superdata.meta.js
 // @downloadURL    http://distomatic.s3-website-us-east-1.amazonaws.com/iitc/plugins/map-superdata.user.js
-// @description    [3ch01c-2017-01-03] Load a lot more portals
+// @description    [3ch01c-2017-03-12] Load a lot more portals
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*
@@ -26,7 +26,7 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 //PLUGIN AUTHORS: writing a plugin outside of the IITC build environment? if so, delete these lines!!
 //(leaving them in place might break the 'About IITC' page or break update checks)
 plugin_info.buildName = 'distomatic';
-plugin_info.dateTimeVersion = '20160513.52655';
+plugin_info.dateTimeVersion = '20170312';
 plugin_info.pluginId = 'map-superdata';
 //END PLUGIN AUTHORS NOTE
 
@@ -42,7 +42,7 @@ var ZOOM_ALL_LINKS = 1;
 var ZOOM_ALL_PORTALS = 2;
 var ZOOM_MAX_MODE = ZOOM_ALL_PORTALS;
 var mode_text = [ "default", "all links", "all portals" ];
-var standard_zoom;
+var standard_zoom, previous_zoom = 0;
 
 window.plugin.superData.mode = ZOOM_DEFAULT;
 
@@ -53,8 +53,18 @@ window.plugin.superData.mode = ZOOM_DEFAULT;
 // if <13 or 14, refuse all portals
 
 window.plugin.superData.getDataZoomForMapZoom = function(zoom) {
-    var mode = window.plugin.superData.mode;
+    var mode;
     var map_zoom = zoom;
+    if (zoom < previous_zoom){
+        // switch back to default view when zooming out
+        mode = ZOOM_DEFAULT;
+        previous_zoom = zoom;
+        window.plugin.superData.setmode(mode);
+    }
+    else {
+        mode = window.plugin.superData.mode;
+        previous_zoom = zoom;
+    }
 
     if (mode === ZOOM_DEFAULT)
 	return standard_zoom(zoom);
