@@ -22,5 +22,8 @@ This gives some more score information. May not be totally accurate or even work
 # [uniques](../../raw/master/uniques.user.js)
 Adds captured/visited layers.
 
+# [superdata](../../raw/master/superdata.user.js)
+Load a lot more data.
+
 # [reso-energy-days-in-portal-detail](../../raw/master/reso-energy-days-in-portal-detail.user.js)
 Show resonator energy in days remaining.

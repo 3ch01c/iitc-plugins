@@ -2,11 +2,11 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.20170103
+// @version        0.2.12.20170928
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://github.com/3ch01c/iitc-plugins/raw/master/bookmarks-by-zaso.user.js
 // @downloadURL    https://github.com/3ch01c/iitc-plugins/raw/master/bookmarks-by-zaso.user.js
-// @description    [local-2017-01-03] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
+// @description    [local-2017-09-28] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
 // @match          https://*.ingress.com/intel*
@@ -996,11 +996,10 @@ if(scanType === 0 || (scanType === 1 && type === 'maps') || (scanType === 2 && t
 WORKING WORKING WORKING WORKING WORKING
 ****************************************/
 
-/*
 	window.plugin.bookmarks.closeSearchList = function(){
-//		$(this).autocomplete('search', $('#searchB input').val());
-//		$('#searchB input').val('');
-//		$('#searchB input').autocomplete("close");
+		$(this).autocomplete('search', $('#searchB input').val());
+		$('#searchB input').val('');
+		$('#searchB input').autocomplete("close");
 	}
 
 	function searchAndHighlight(searchTerm, selector, highlightClass, removePreviousHighlights) {
@@ -1054,26 +1053,26 @@ WORKING WORKING WORKING WORKING WORKING
 				$('#bkmrk_portals > ul').hide();
 				var str = $('#searchB input').val();
 				if(str !== ''){
-//					$(this).autocomplete('search', str);
+					$(this).autocomplete('search', str);
 					searchAndHighlight(str, "#bkmrk_portals .ui-autocomplete", 'highlight');
 				}
-//				$('#bkmrk_portals .addForm #searchB ul').hide();
+				$('#bkmrk_portals .addForm #searchB ul').hide();
 		    },
 			close: function(event, ui){
-//				$('#searchB input').val('');
+				$('#searchB input').val('');
 				if($('#bkmrk_portals').hasClass('current')){
 					$('#bkmrk_portals > ul').show();
 				}
-//				$('#bkmrk_portals .addForm #searchB ul').hide();
+				$('#bkmrk_portals .addForm #searchB ul').hide();
 			},
 			change: function(event, ui){
 				$('#bkmrk_portals > ul').hide();
 				var str = $('#searchB input').val();
 				if(str !== ' ' && str.length > 0){
 					$(this).autocomplete('search', str);
-//					searchAndHighlight($('#searchB input').val(), "#bkmrk_portals .ui-autocomplete", 'highlight')
+					searchAndHighlight($('#searchB input').val(), "#bkmrk_portals .ui-autocomplete", 'highlight')
 				}
-//			$('#bkmrk_portals .addForm #searchB ul').hide();
+			$('#bkmrk_portals .addForm #searchB ul').hide();
 			}
 		});
 	}
@@ -1089,9 +1088,9 @@ WORKING WORKING WORKING WORKING WORKING
 		window.plugin.bookmarks.searchCreateArr();
 		window.plugin.bookmarks.searchBoot();
 
-//		$('#searchB input').autocomplete('close');
-//		window.plugin.bookmarks.searchCreateArr();
-//		$('#searchB input').autocomplete('option', 'source', window.plugin.bookmarks.searchArr);
+		$('#searchB input').autocomplete('close');
+		window.plugin.bookmarks.searchCreateArr();
+		$('#searchB input').autocomplete('option', 'source', window.plugin.bookmarks.searchArr);
 	}
 
 	window.plugin.bookmarks.searchCreateArr = function() {
@@ -1112,7 +1111,7 @@ WORKING WORKING WORKING WORKING WORKING
 		$('#bkmrk_portals.current > ul').toggle();
 		$('#searchB input').autocomplete('search', '');
 	}
-*/
+
 
 /***************************************************************************************************************************************************************/
 
