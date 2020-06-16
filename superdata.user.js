@@ -4,8 +4,8 @@
 // @category       Info
 // @version        0.0.1.20170312
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      http://distomatic.s3-website-us-east-1.amazonaws.com/iitc/plugins/map-superdata.meta.js
-// @downloadURL    http://distomatic.s3-website-us-east-1.amazonaws.com/iitc/plugins/map-superdata.user.js
+// @updateURL      https://github.com/clavelm/iitc-plugins/raw/master/superdata.user.js
+// @downloadURL    https://github.com/clavelm/iitc-plugins/raw/master/superdata.user.js
 // @description    [3ch01c-2017-03-12] Load a lot more portals
 // @include        https://*.ingress.com/intel*
 // @include        http://*.ingress.com/intel*
